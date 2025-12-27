@@ -15,11 +15,13 @@ def health():
 def say_hello(name: str):
     return {"greeting": f"Hello {name}"}
 
+@app.get("/divide/{a} {b}")
 def divide(a: int, b: int):
     if b == 0:
         raise HTTPException(status_code=400, detail="Division by zero not allowed")
     return {"result": a / b}
 
+@app.get("/add/{a} {b}")
 def add(a: int, b: int):
     return {"result": a +b}
 
